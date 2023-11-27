@@ -1,6 +1,5 @@
 from odoo import fields, models
 
-
 class ResourceMail(models.Model):
     _inherit = 'mailing.contact'
 

@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-        <record id="resource_mail_view_form" model="ir.ui.view">
-            <field name="name">resource.mail.view.form</field>
-            <field name="model">mailing.contact</field>
-            <field name="inherit_id" ref="mass_mailing.mailing_contact_view_form"/>
-            <field name="priority">10</field>
-            <field name="arch" type="xml">
+    <record id="resource_mail_view_form" model="ir.ui.view">
+        <field name="name">resource.mail.view.form</field>
+        <field name="model">mailing.contact</field>
+        <field name="inherit_id" ref="mass_mailing.mailing_contact_view_form"/>
+        <field name="priority">10</field>
+        <field name="arch" type="xml">
 
-                <xpath expr="//field[@name='message_bounce']" position="after">
-                    <field name ="res_street"/>
-                    <field name ="res_city"/>
-                    <field name ="res_state"/>
-                </xpath>
-            </field>
-        </record>
-
+            <xpath expr="//field[@name='message_bounce']" position="after">
+                <field name="res_street"/>
+                <field name="res_city"/>
+                <field name="res_state"/>
+            </xpath>
+        </field>
+    </record>
 </odoo>
