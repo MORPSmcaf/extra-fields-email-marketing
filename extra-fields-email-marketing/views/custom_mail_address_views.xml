@@ -8,9 +8,10 @@
         <field name="arch" type="xml">
 
             <xpath expr="//field[@name='message_bounce']" position="after">
-                <field name="res_street"/>
-                <field name="res_city"/>
-                <field name="res_state"/>
+                <field name="street"/>
+                <field name="city"/>
+                <field name="state"/>
+                <field name="zip_code"/>
             </xpath>
         </field>
     </record>

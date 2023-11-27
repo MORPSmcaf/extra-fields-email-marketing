@@ -1,2 +1,1 @@
-from . import resource_mail
-
+from . import custom_mail_address
