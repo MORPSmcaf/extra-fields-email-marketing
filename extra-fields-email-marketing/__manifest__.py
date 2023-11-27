@@ -11,7 +11,6 @@
     'depends': ['base',
                 'mass_mailing'],
     'data': [
-        # 'security/ir.model.access.csv',
         'views/custom_mail_address_views.xml',
     ],
     'demo': [
