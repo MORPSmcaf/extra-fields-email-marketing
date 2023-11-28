@@ -12,9 +12,16 @@ class CustomMailAddress(models.Model):
     city = fields.Char(string=' City ',
                        required=True,
                        help='City')
-    state = fields.Char(string=' State ',
-                        required=True,
-                        help='State')
+    province = fields.Char(string=' Province ',
+                           required=True,
+                           default='New Brunswick',
+                           readonly=True,
+                           help='Province')
+    country = fields.Char(string=' Country ',
+                          required=True,
+                          default='Canada',
+                          readonly=True,
+                          help='Country')
     zip_code = fields.Char(string=' Zip Code ',
                            required=True,
                            help='Zip Code')

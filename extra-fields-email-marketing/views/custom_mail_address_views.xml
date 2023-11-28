@@ -10,7 +10,8 @@
             <xpath expr="//field[@name='message_bounce']" position="after">
                 <field name="street"/>
                 <field name="city"/>
-                <field name="state"/>
+                <field name="province"/>
+                <field name="country"/>
                 <field name="zip_code"/>
             </xpath>
         </field>
