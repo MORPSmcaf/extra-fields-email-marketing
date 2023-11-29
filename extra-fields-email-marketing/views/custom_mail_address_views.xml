@@ -6,12 +6,13 @@
         <field name="inherit_id" ref="mass_mailing.mailing_contact_view_form"/>
         <field name="priority">10</field>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='country_id']" position="before">
+            <xpath expr="//field[@name='message_bounce']" position="after">
+                <xpath expr="//field[@name='country_id']" position="move"/>
                 <field name="street"/>
                 <field name="city"/>
-                <field name="zip_code"/>
                 <field name="state_id"
                        options="{'no_open' : True}"/>
+                <field name="zip_code"/>
             </xpath>
         </field>
     </record>
