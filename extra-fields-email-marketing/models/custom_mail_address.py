@@ -12,9 +12,20 @@ class CustomMailAddress(models.Model):
     city = fields.Char(string=' City ',
                        required=True,
                        help='City')
-    state = fields.Char(string=' State ',
-                        required=True,
-                        help='State')
+    state_id = fields.Many2one(
+        'res.country.state',
+        string='Province',
+        default=lambda self: self.env['res.country.state'].search([('code', '=', 'NB')], limit=1),
+        readonly=True,
+        help='Select the state for the contact.'
+    )
+    country_id = fields.Many2one(
+        'res.country',
+        string='Country',
+        default=lambda self: self.env['res.country'].search([('code', '=', 'CA')], limit=1),
+        readonly=True,
+        help='Select the country for the contact.'
+    )
     zip_code = fields.Char(string=' Zip Code ',
                            required=True,
                            help='Zip Code')
