@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class CustomMailAddress(models.Model):
@@ -12,16 +12,20 @@ class CustomMailAddress(models.Model):
     city = fields.Char(string=' City ',
                        required=True,
                        help='City')
-    province = fields.Char(string=' Province ',
-                           required=True,
-                           default='New Brunswick',
-                           readonly=True,
-                           help='Province')
-    country = fields.Char(string=' Country ',
-                          required=True,
-                          default='Canada',
-                          readonly=True,
-                          help='Country')
+    state_id = fields.Many2one(
+        'res.country.state',
+        string='Province',
+        default=lambda self: self.env['res.country.state'].search([('code', '=', 'NB')], limit=1),
+        readonly=True,
+        help='Select the state for the contact.'
+    )
+    country_id = fields.Many2one(
+        'res.country',
+        string='Country',
+        default=lambda self: self.env['res.country'].search([('code', '=', 'CA')], limit=1),
+        readonly=True,
+        help='Select the country for the contact.'
+    )
     zip_code = fields.Char(string=' Zip Code ',
                            required=True,
                            help='Zip Code')
