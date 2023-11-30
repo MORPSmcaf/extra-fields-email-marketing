@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class CustomMailAddress(models.Model):
@@ -27,3 +27,11 @@ class CustomMailAddress(models.Model):
     zip_code = fields.Char(string=' Zip Code ',
                            required=True,
                            help='Zip Code')
+
+    @api.onchange('country_id')
+    def onchange_country_id(self):
+        """Update state_id based on selected country"""
+        if self.country_id:
+            return {'domain': {'state_id': [('country_id', '=', self.country_id.id)]}}
+        else:
+            return {'domain': {'state_id': []}}
